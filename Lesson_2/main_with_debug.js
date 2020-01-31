@@ -1,7 +1,7 @@
 //This was debugged by Zoey Colglazier, 1.2020
+//corrections will be made, with a comment on the error next to the corrected code
 
-
-//initialize function called when the script loads
+//This modularizes our code so that the page loads better, and we can pick and choose which functions get included in the initialize function.
 function initialize(){
 	cities();
 };
@@ -29,10 +29,10 @@ function cities(){
 	];
 
 	//append the table element to the div
-	$("#mydiv").append("<table>");
+	$("#mydiv").append("table"); //removed <> (incorrect syntax)
 
 	//append a header row to the table
-	$("table").append("<tr>");
+	$("table").append("tr"); //removed <> (incorrect syntax)
 
 	//add the "City" and "Population" columns to the header row
 	$("tr").append("<th>City</th><th>Population</th>");
