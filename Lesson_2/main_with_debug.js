@@ -1,3 +1,6 @@
+//This was debugged by Zoey Colglazier, 1.2020
+
+
 //initialize function called when the script loads
 function initialize(){
 	cities();
@@ -7,7 +10,7 @@ function initialize(){
 function cities(){
 	//define two arrays for cities and population
 	var cityPop = [
-		{ 
+		{
 			city: 'Madison',
 			population: 233209
 		},
@@ -30,10 +33,10 @@ function cities(){
 
 	//append a header row to the table
 	$("table").append("<tr>");
-	
+
 	//add the "City" and "Population" columns to the header row
 	$("tr").append("<th>City</th><th>Population</th>");
-	
+
 	//loop to add a new row for each city
     for (var i = 0; i < cityPop.length; i++){
         //assign longer html strings to a variable
@@ -47,7 +50,7 @@ function cities(){
 };
 
 function addColumns(cityPop){
-    
+
     $('tr').each(function(i){
 
     	if (i == 0){
@@ -75,7 +78,7 @@ function addColumns(cityPop){
 function addEvents(){
 
 	$('#table').mouseover(function(){
-		
+
 		var color = "rgb(";
 
 		for (var i=0; i<3; i++){
@@ -86,7 +89,7 @@ function addEvents(){
 
 			if (i<2){
 				color += ",";
-			
+
 			} else {
 				color += ")";
 		};
