@@ -25,14 +25,14 @@ function cities(){
 		{
 			city: 'Superior',
 			population: 27244
-		}
+		},
 	];
-
+}
 	//append the table element to the div
-	$("#mydiv").append("table"); //removed <> (incorrect syntax)
+	$("#mydiv").append("<table>");
 
 	//append a header row to the table
-	$("table").append("tr"); //removed <> (incorrect syntax)
+	$("table").append("<tr>");
 
 	//add the "City" and "Population" columns to the header row
 	$("tr").append("<th>City</th><th>Population</th>");
@@ -55,7 +55,7 @@ function addColumns(cityPop){
 
     	if (i == 0){
 
-    		$(this).apend('<th>City Size</th>');
+    		$(this).append('<th>City Size</th>'); //spelling error - append, not apend
     	} else {
 
     		var citySize;
@@ -70,7 +70,7 @@ function addColumns(cityPop){
     			citySize = 'Large';
     		};
 
-    		$this.append('<td' + citySize + '</td>');
+    		$(this).append('<td' + citySize + '</td>'); //missing parentheses around this
     	};
     });
 };
@@ -89,19 +89,19 @@ function addEvents(){
 
 			if (i<2){
 				color += ",";
-
 			} else {
 				color += ")";
 		};
 
 		$(this).css('color', color);
 	});
+}); //missing closing curly braces and a parenthes for the function
 
-	function clickme(){
+function clickme(){ //incorrect indentation
 
 		alert('Hey, you clicked me!');
 	};
-
+	{ //missing a front curly brace
 	$('table').on('click', clickme);
 };
 
