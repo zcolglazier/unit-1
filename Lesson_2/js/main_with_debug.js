@@ -70,17 +70,18 @@ function cities(){
 			};
 		});
 	}
+	//throughout this section there were some weird indents and curly braces that were altered.
  		function addEvents(){
 
- 		$('#table').mouseover(function(){
-
+ 		$('table').mouseover(function(){
+			//pound symbol when there was not one needed
  		var color = "rgb(";
 
  		for (var i=0; i<3; i++){
 
  			var random = Math.round(Math.random() * 255);
 
- 			color += "random";
+ 			color += random; //didn't need to be a string
 
  			if (i<2){
  				color += ",";
