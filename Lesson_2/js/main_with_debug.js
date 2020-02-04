@@ -25,85 +25,85 @@ function cities(){
 		{
 			city: 'Superior',
 			population: 27244
-		},
+		}
 	];
-}
-	//append the table element to the div
-	$("#mydiv").append("<table>");
+}; //incorrect comma in the list, missing semicolon at the end of the function
+ 	//append the table element to the div
+ 	$("#mydiv").append("<table>");
 
-	//append a header row to the table
-	$("table").append("<tr>");
+ 	//append a header row to the table
+ 	$("table").append("<tr>");
 
-	//add the "City" and "Population" columns to the header row
-	$("tr").append("<th>City</th><th>Population</th>");
+ 	//add the "City" and "Population" columns to the header row
+ 	$("tr").append("<th>City</th><th>Population</th>");
 
-	//loop to add a new row for each city
-    for (var i = 0; i < cityPop.length; i++){
-        //assign longer html strings to a variable
-        var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
-        //add the row's html string to the table
-        $("table").append(rowHtml);
-    };
+ 	//loop to add a new row for each city
+	 for (var i = 0; i < cityPop.length; i++){
+         //assign longer html strings to a variable
+         var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
+         //add the row's html string to the table
+         $("table").append(rowHtml);
+     };
 
-    addColumns(cityPop);
-    addEvents();
-};
+     addColumns(cityPop);
+     addEvents();
+	 }; //unecessary curly brace and semicolon
 
-function addColumns(cityPop){
+ function addColumns(cityPop){
 
-    $('tr').each(function(i){
+     $('tr').each(function(i){
 
-    	if (i == 0){
+     	if (i == 0){
 
-    		$(this).append('<th>City Size</th>'); //spelling error - append, not apend
-    	} else {
+     		$(this).append('<th>City Size</th>'); //spelling error - append, not apend
+     	} else {
 
-    		var citySize;
+     		var citySize;
 
-    		if (cityPop[i-1].population < 100000){
-    			citySize = 'Small';
+     		if (cityPop[i-1].population < 100000){
+     			citySize = 'Small';
 
-    		} else if (cityPop[i-1].population < 500000){
-    			citysize = 'Medium';
+     		} else if (cityPop[i-1].population < 500000){
+     			citysize = 'Medium';
 
-    		} else {
-    			citySize = 'Large';
-    		};
+     		} else {
+     			citySize = 'Large';
+     		};
 
-    		$(this).append('<td' + citySize + '</td>'); //missing parentheses around this
-    	};
-    });
-};
+     		$(this).append('<td' + citySize + '</td>'); //missing parentheses around this
+     	};
+     });
+ };
 
-function addEvents(){
+ function addEvents(){
 
-	$('#table').mouseover(function(){
+ 	$('#table').mouseover(function(){
 
-		var color = "rgb(";
+ 		var color = "rgb(";
 
-		for (var i=0; i<3; i++){
+ 		for (var i=0; i<3; i++){
 
-			var random = Math.round(Math.random() * 255);
+ 			var random = Math.round(Math.random() * 255);
 
-			color += "random";
+ 			color += "random";
 
-			if (i<2){
-				color += ",";
-			} else {
-				color += ")";
-		};
+ 			if (i<2){
+ 				color += ",";
+ 			} else {
+ 				color += ")";
+ 		};
+ };
+ 		$(this).css('color', color);
+ });
+ }; //missing closing curly braces  for the function, ordering incorrect in parentheses/braces
 
-		$(this).css('color', color);
-	});
-}); //missing closing curly braces and a parenthes for the function
+ function clickme(){ //incorrect indentation
 
-function clickme(){ //incorrect indentation
-
-		alert('Hey, you clicked me!');
-	};
-	{ //missing a front curly brace
-	$('table').on('click', clickme);
-};
+ 		alert('Hey, you clicked me!');
+ 	};
+ 	{ //missing a front curly brace
+ 	$('table').on('click', clickme);
+ };
 
 //call the initialize function when the document has loaded
 $(document).ready(initialize);
