@@ -27,7 +27,7 @@ function cities(){
 			population: 27244
 		}
 	];
-}; //incorrect comma in the list, missing semicolon at the end of the function
+ //missing semicolon at the end of the function
  	//append the table element to the div
  	$("#mydiv").append("<table>");
 
@@ -47,35 +47,30 @@ function cities(){
 
      addColumns(cityPop);
      addEvents();
-	 }; //unecessary curly brace and semicolon
 
- function addColumns(cityPop){
+
+ 	 function addColumns(cityPop){
 
      $('tr').each(function(i){
-
-     	if (i == 0){
-
-     		$(this).append('<th>City Size</th>'); //spelling error - append, not apend
-     	} else {
-
-     		var citySize;
+			 	if (i===0){
+			 	$(this).append('<th>City Size</th>'); //spelling error - append, not apend
+			} else {
+     		var citySize = '';
 
      		if (cityPop[i-1].population < 100000){
      			citySize = 'Small';
 
      		} else if (cityPop[i-1].population < 500000){
-     			citysize = 'Medium';
+     			citySize = 'Medium';
 
      		} else {
      			citySize = 'Large';
      		};
-
-     		$(this).append('<td' + citySize + '</td>'); //missing parentheses around this
-     	};
-     });
- };
-
- function addEvents(){
+     		$(this).append('<td>' + citySize + '</td>'); //missing parentheses around this
+			};
+		});
+	}
+ 	function addEvents(){
 
  	$('#table').mouseover(function(){
 
@@ -92,18 +87,18 @@ function cities(){
  			} else {
  				color += ")";
  		};
- };
+ 	};
  		$(this).css('color', color);
- });
- }; //missing closing curly braces  for the function, ordering incorrect in parentheses/braces
+ 	});
+ 	}; //missing closing curly braces  for the function, ordering incorrect in parentheses/braces
 
- function clickme(){ //incorrect indentation
+ 	function clickme(){ //incorrect indentation
 
  		alert('Hey, you clicked me!');
  	};
  	{ //missing a front curly brace
  	$('table').on('click', clickme);
- };
-
+ 	};
+};
 //call the initialize function when the document has loaded
 $(document).ready(initialize);
