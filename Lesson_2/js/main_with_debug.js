@@ -70,9 +70,9 @@ function cities(){
 			};
 		});
 	}
- 	function addEvents(){
+ 		function addEvents(){
 
- 	$('#table').mouseover(function(){
+ 		$('#table').mouseover(function(){
 
  		var color = "rgb(";
 
@@ -86,8 +86,8 @@ function cities(){
  				color += ",";
  			} else {
  				color += ")";
+ 			};
  		};
- 	};
  		$(this).css('color', color);
  	});
  	}; //missing closing curly braces  for the function, ordering incorrect in parentheses/braces
@@ -100,5 +100,6 @@ function cities(){
  	$('table').on('click', clickme);
  	};
 };
+
 //call the initialize function when the document has loaded
 $(document).ready(initialize);
