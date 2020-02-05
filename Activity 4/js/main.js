@@ -106,25 +106,27 @@ function cities(){
 $(document).ready(initialize);
 
 //This is where Activity 4 from Week 3 begins. Debugged by Zoey Colglazier in 2.2020
+//All code from line 106 to the top has not been edited since submission of Week 2
 
 function debugCallback(response){
-
-	$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+	//I added a div on my index.html and gave it an id so that my response would show up below the table generated in the last activity.
+	mydata = response //have to rename response to mydata so that following line works better
+	$(geojsondiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
 };
 
 function debugAjax(){
 
-	var mydata;
-
-	$.ajax("data/MegaCities.geojson", {
+		var mydata;
+		$.ajax("data/MegaCities.geojson", {
 		dataType: "json",
 		success: function(response){
-
-			debugCallback(mydata);
+			debugCallback(response);
 		}
 	});
-
-	$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
+	//code below was moved to debugCallback because it did not belong here.
+	//$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
 };
 
-$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+var mydata = debugAjax(); //mydata wasn't defined outside of the function
+
+//removed a bit of code at the end - it tried to run while the server loaded data and mucked everything up.
