@@ -108,6 +108,29 @@ $(document).ready(initialize);
 //This is where Activity 4 from Week 3 begins. Debugged by Zoey Colglazier in 2.2020
 //All code from line 106 to the top has not been edited since submission of Week 2
 
+//native JS for console logging MegaCities.geojson
+function jsAjax(){
+    var ajaxRequest = new XMLHttpRequest(); //request data
+    ajaxRequest.onreadystatechange = function(){
+        if (ajaxRequest.readyState == 4){
+            callback(ajaxRequest.response);
+        }; //create event with a callback function to handle the data
+    };
+    ajaxRequest.open('GET', 'data/MegaCities.geojson', true); //open connection
+    ajaxRequest.responseType = "json";
+    ajaxRequest.send();
+};
+
+//Use a callback function to actually log the received data
+function callback(response){
+    console.log(response);
+};
+window.onload = jsAjax(); //run the whole bit
+
+//Jquery.ajax() method
+$.getJSON("data/MegaCities.geojson", callback); //I like how concise this format is.
+//using callback allows me to reuse the callback function I created for the native JS section above.
+
 function debugCallback(response){
 	//I added a div on my index.html and gave it an id so that my response would show up below the table generated in the last activity.
 	mydata = response //have to rename response to mydata so that following line works better
