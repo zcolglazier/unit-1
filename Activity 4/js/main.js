@@ -113,7 +113,7 @@ function debugCallback(response){
 	mydata = response //have to rename response to mydata so that following line works better
 	$(geojsondiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
 };
-
+	console.log(mydata) //When placed within this function, mydata logs undefined
 function debugAjax(){
 
 		var mydata;
@@ -128,5 +128,6 @@ function debugAjax(){
 };
 
 var mydata = debugAjax(); //mydata wasn't defined outside of the function
+console.log(mydata) //mydata also logs undefined outside of the function because this piece of code executes before the function can finish running and loading the data I want.
 
 //removed a bit of code at the end - it tried to run while the server loaded data and mucked everything up.
